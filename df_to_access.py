@@ -7,13 +7,13 @@ def load_data(excel_file):
     now = dt.datetime.now()      
     table_name = ['IIF Historico','IRF Historico','Benchmark Historico']
 
-    #Columnas access
+    #The columns for the ms access query
     iifc = '(V,[Op V],[Op Int V],FV,C,[Op C],[Op Int C],FC,Rte,Folio,Instrumento,Emisor,Liq,D,Rescate,Moneda,Dias,Tasa,Captacion,[Tipo Emisor],Hora,Fecha)'
     irfc = '(V,[Op V],[Op Int V],FV,C,[Op C],[Op Int C],FC,Rte,Folio,Instrumento,Liq,D,Cantidad,Reaj,Plazo,Duration,Precio,TIR,Monto,Hora,Fecha,[Monto Liq],Familia,[Moneda Liq])'
     bchmc = '(Indice,Benchmark,[10:10 am],[1:20 pm],Ultimo,Mayor,Menor,[Nro Negocios],[Monto $],Fecha)'
     fields = [iifc,irfc,bchmc]
 
-    #Dataframes
+    #Example Dataframes
     IIF = pd.read_excel(open(excel_file,"rb"), sheetname="IIF")
     IRF = pd.read_excel(open(excel_file,"rb"), sheetname="IRF")
     Bch = pd.read_excel(open(excel_file,"rb"), sheetname="Benchmark")
@@ -25,7 +25,7 @@ def load_data(excel_file):
     #Access connection
     connStr = (
         r"DRIVER={Microsoft Access Driver (*.mdb, *.accdb)};"
-        r"DBQ=C:\Users\Jose Pedro\Dropbox\projects\Python\Zspread\datosSebra.accdb;"
+        r"DBQ=;" #here edit the route to your DB
         )
     cnxn = pyodbc.connect(connStr)
     cursor = cnxn.cursor()
