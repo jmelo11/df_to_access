@@ -1,2 +1,2 @@
 # df_to_access
-code to send pandas dataframes to ms access
+Example Code to upload a Pandas DataFrame to MS Access.
